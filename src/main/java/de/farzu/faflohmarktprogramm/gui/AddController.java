@@ -42,7 +42,7 @@ public class AddController implements Initializable {
     //    regionKonstruktor
     private String[] productSelection = {"Kleidung", "Spielzeug", "Kindermöbel", "Kinderbuch"};
 
-    private Integer[] alterGroupSelection = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    private Integer[] alterGroupSelection = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     //    endregion
 
 
@@ -135,9 +135,11 @@ public class AddController implements Initializable {
     public void setClearEmpty(ActionEvent event){
 
         myTextField.setText(AppTexts.EMPTY_TEXT);
-        txtAlterGroup.setText(String.valueOf(AppTexts.EMPTY_TEXT));
         txtName.setText(AppTexts.EMPTY_TEXT);
         txtDescription.setText(AppTexts.EMPTY_TEXT);
+        alterGroupChoiceBox.setValue(null);
+        productChoiceBox.setValue(" ");
+        txtAlterGroup.setText(String.valueOf(AppTexts.EMPTY_TEXT));
     }
     //    endregion
 

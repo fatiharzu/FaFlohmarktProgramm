@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.farzu.faflohmarktprogramm.gui.AddController">
    <items>
@@ -41,6 +42,9 @@
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
                   </TextField>
                   <ChoiceBox fx:id="alterGroupChoiceBox" prefHeight="25.0" prefWidth="86.0">
                      <HBox.margin>
@@ -58,7 +62,10 @@
                   <TextField fx:id="txtName" prefHeight="20.0" prefWidth="152.0">
                      <HBox.margin>
                         <Insets />
-                     </HBox.margin></TextField>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></TextField>
                </children>
                <padding>
                   <Insets left="-125.0" />
@@ -69,7 +76,10 @@
                   <TextField fx:id="txtDescription" prefHeight="2.0" prefWidth="151.0" scaleX="2.0" translateX="75.0">
                      <HBox.margin>
                         <Insets left="3.0" />
-                     </HBox.margin></TextField>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></TextField>
                </children>
                <VBox.margin>
                   <Insets />
