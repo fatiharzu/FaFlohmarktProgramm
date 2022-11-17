@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,13 +27,15 @@ public class AddController implements Initializable {
     @FXML
     private ChoiceBox<Integer> alterGroupChoiceBox;
     @FXML
-    public TextField myTextField;
+    public TextField txtSpecies;
     @FXML
     public TextField txtAlterGroup;
     @FXML
     public TextField txtName;
     @FXML
     public TextField txtDescription;
+    @FXML
+    public Label alterGroupLabel;
 
     public Products selectedProduct;
 
@@ -40,7 +43,8 @@ public class AddController implements Initializable {
 
 
     //    regionKonstruktor
-    private String[] productSelection = {"Kleidung", "Spielzeug", "Kindermöbel", "Kinderbuch"};
+    Products  product = new Products();
+    private String[] productSelection = {"Kleidung   ", "Spielzeug  ", "Kindermöbel", "Kinderbuch "};
 
     private Integer[] alterGroupSelection = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     //    endregion
@@ -51,18 +55,18 @@ public class AddController implements Initializable {
         this.selectedProduct = selectedProduct;
 
         if (selectedProduct != null){
-            myTextField.setText(selectedProduct.getSpecies());
+            txtSpecies.setText(selectedProduct.getSpecies());
             txtAlterGroup.setText(String.valueOf(selectedProduct.getAlterGroup()));
             txtName.setText(selectedProduct.getName());
             txtDescription.setText(selectedProduct.getDescription());
         }
     }
     @FXML
-    private void saveAnimal() {
+    private void saveProdukt() {
         if (selectedProduct != null) {
 
-            if (textFieldIsNotBlankEmptyOrEqual(myTextField, selectedProduct.getSpecies()))
-                selectedProduct.setSpecies(myTextField.getText());
+            if (textFieldIsNotBlankEmptyOrEqual(txtSpecies, selectedProduct.getSpecies()))
+                selectedProduct.setSpecies(txtSpecies.getText());
 
             if (textFieldIsNotBlankEmptyOrEqual(txtName, selectedProduct.getName()))
                 selectedProduct.setName(txtName.getText());
@@ -73,19 +77,22 @@ public class AddController implements Initializable {
             if (textFieldIsNotBlankEmptyOrEqual(txtDescription, selectedProduct.getDescription()))
                 selectedProduct.setDescription(txtDescription.getText());
 
-        } else {
+            }else{
+            try {
+                Products newProduct = new Products(
+                        txtSpecies.getText(),
+                        Integer.parseInt(txtAlterGroup.getText()),
+                        txtName.getText(),
+                        txtDescription.getText()
+                );
+                ProductHolder.getInstance().getProducts().add(newProduct);
 
-            Products newProduct = new Products(
-                    myTextField.getText(),
-                    Integer.parseInt(txtAlterGroup.getText()),
-                    txtName.getText(),
-                    txtDescription.getText()
-            );
-
-          ProductHolder.getInstance().getProducts().add(newProduct);
+            }catch (NumberFormatException e){
+                alterGroupLabel.setText("Please enter Numbers");
+            }catch (Exception e){
+                alterGroupLabel.setText("Error: " + e.getMessage());
+            }
         }
-
-        switchToStartScene();
     }
 
     @FXML
@@ -95,6 +102,7 @@ public class AddController implements Initializable {
 
     @FXML
     private void switchToSortScene() {SceneManager.getInstance().switchToSortScene();}
+
 
     @FXML
     private void conveyAnimal() {
@@ -122,7 +130,7 @@ public class AddController implements Initializable {
     }
     public void getProduct(ActionEvent event){
         String products = productChoiceBox.getValue();
-        myTextField.setText(products);
+        txtSpecies.setText(products);
 
     }
 
@@ -134,13 +142,14 @@ public class AddController implements Initializable {
 
     public void setClearEmpty(ActionEvent event){
 
-        myTextField.setText(AppTexts.EMPTY_TEXT);
+        txtSpecies.setText(AppTexts.EMPTY_TEXT);
         txtName.setText(AppTexts.EMPTY_TEXT);
         txtDescription.setText(AppTexts.EMPTY_TEXT);
         alterGroupChoiceBox.setValue(null);
-        productChoiceBox.setValue(" ");
+        productChoiceBox.setValue("");
         txtAlterGroup.setText(String.valueOf(AppTexts.EMPTY_TEXT));
     }
+
     //    endregion
 
 }
