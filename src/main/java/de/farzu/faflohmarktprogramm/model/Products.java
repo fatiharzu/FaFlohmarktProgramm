@@ -5,7 +5,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-
+        /**
+         * Stellt ein Produkt aus der realen Welt dar, mit den
+         * Eigenschaften Produkttyp, Altersgruppe und Beschreibung.
+         */
 
     public class Products {
         //    region Konstanten
@@ -16,10 +19,10 @@ import javafx.beans.property.StringProperty;
 
         //    region Attribute
         private int id;
-        private StringProperty species;
-        private IntegerProperty alterGroup;
-        private StringProperty name;
-        private StringProperty description;
+        private final StringProperty species;
+        private final IntegerProperty alterGroup;
+        private final StringProperty name;
+        private final StringProperty description;
         //    endregion
 
 

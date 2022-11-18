@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.farzu.faflohmarktprogramm.gui.AddController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.farzu.faflohmarktprogramm.gui.AddDeleteEditController">
    <items>
       <VBox prefHeight="372.0" prefWidth="598.0" spacing="20.0">
          <children>
@@ -17,7 +17,7 @@
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="598.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="76.0" text="Produkt Type" />
-                  <TextField fx:id="txtSpecies" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="152.0" promptText="Type of Produkten">
+                  <TextField fx:id="txtSpecies" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="152.0" promptText="Produktart">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -36,10 +36,15 @@
                   <Insets left="5.0" />
                </padding>
             </HBox>
+            <Label fx:id="productTypeLabel" alignment="CENTER" layoutX="220.0" layoutY="167.0" prefHeight="17.0" prefWidth="140.0" textFill="RED">
+               <VBox.margin>
+                  <Insets bottom="-10.0" left="190.0" top="-20.0" />
+               </VBox.margin>
+            </Label>
             <HBox alignment="CENTER" layoutX="30.0" layoutY="97.0" prefHeight="34.0" prefWidth="598.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="76.0" text="Alter Group" />
-                  <TextField fx:id="txtAlterGroup" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="152.0" promptText="Products of Alter Group">
+                  <TextField fx:id="txtAlterGroup" alignment="TOP_LEFT" prefHeight="20.0" prefWidth="152.0" promptText="Produktaltersgruppe">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -78,10 +83,15 @@
                <padding>
                   <Insets left="-125.0" />
                </padding></HBox>
+            <Label fx:id="productTypeLabel1" alignment="CENTER" layoutX="220.0" layoutY="122.0" prefHeight="17.0" prefWidth="140.0" textFill="RED">
+               <VBox.margin>
+                  <Insets bottom="-10.0" left="190.0" top="-20.0" />
+               </VBox.margin>
+            </Label>
             <HBox alignment="CENTER" layoutX="30.0" layoutY="177.0" prefHeight="37.0" prefWidth="100.0" spacing="20.0">
                <children>
-                  <Label text="Explanation " />
-                  <TextField fx:id="txtDescription" prefHeight="23.0" prefWidth="343.0" promptText="Type about Produkten">
+                  <Label text="Explikation " />
+                  <TextField fx:id="txtDescription" prefHeight="23.0" prefWidth="343.0" promptText="Type über Produkten">
                      <HBox.margin>
                         <Insets left="3.0" right="-190.0" />
                      </HBox.margin>
@@ -98,6 +108,11 @@
                <padding>
                   <Insets left="-125.0" />
                </padding></HBox>
+            <Label fx:id="productTypeLabel11" alignment="CENTER" layoutX="220.0" layoutY="223.0" prefHeight="17.0" prefWidth="140.0" textFill="RED">
+               <VBox.margin>
+                  <Insets bottom="-10.0" left="190.0" top="-20.0" />
+               </VBox.margin>
+            </Label>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -116,14 +131,14 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="83.0" prefWidth="374.0" spacing="20.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#conveyAnimal" text="Delete">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#conveyAnimal" text="Löschen">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                      <padding>
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding></Button>
-                  <Button fx:id="clearButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="Clear" />
+                  <Button fx:id="clearButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="Klar" />
                   <Button fx:id="savebtn" lineSpacing="10.0" mnemonicParsing="false" onAction="#saveProdukt" prefHeight="33.0" prefWidth="82.0" text="Speichern">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />

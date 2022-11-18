@@ -5,6 +5,11 @@ import de.farzu.faflohmarktprogramm.model.Products;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.List;
+        /**
+         * Baut Verbindungen zu Datenbanken auf
+         * und stellt die jeweiligen Dao-Objekte Bereit um
+         * auf einzelne Tabellen zuzugreifen
+         */
 
     public class DbManager {
         //    region Konstanten
@@ -38,7 +43,12 @@ import java.util.List;
             if (instance == null) instance = new DbManager();
             return instance;
         }
-
+            /**
+             * Baut eine Verbindung zur Datenbank auf und
+             * gibt diese zurück
+             *
+             * @return {@link Connection} : Verbindung zur Datenbank
+             */
 
         private Connection getConnection() {
             Connection dbConnection = null;
@@ -52,19 +62,43 @@ import java.util.List;
             return dbConnection;
         }
 
+            /**
+             * Leitet das Einfügen eines Datensatzes für das übergebene Objekt ein.
+             * Dafür wird geprüft, um welche Instanz es sich genau handelt.
+             *
+             * @param object : {@link Object} : Das einzufügende Objekt
+             */
+
         public void insertDataRecord(Object object){
             if (object instanceof Products product) daoProducts.create(getConnection(), product);
 
         }
+
+            /**
+             * Liest alle Tiere aus der Datenbank aus und gibt
+             * sie als Liste zurück
+             *
+             * @return {@link List<Products>} : Liste aller Tiere in der Datenbank
+             */
 
         public List<Products> realAllDataRecords() {
 
             return daoProducts.readAll(getConnection());
         }
 
+            /**
+             * Leitet das Aktualisieren eines Datensatzes für das übergebene Objekt ein.
+             * Dafür wird geprüft, um welche Instanz es sich genau handelt.
+             */
+
         public void updateDataRecord(Object object){
             if (object instanceof Products product) daoProducts.update(getConnection(), product);
         }
+
+            /**
+             * Leitet das Löschen eines Datensatzes für das übergebene Objekt ein.
+             * Dafür wird geprüft, um welche Instanz es sich genau handelt.
+             */
         public void deleteDataRecord(Object object){
             if(object instanceof Products product) daoProducts.delete(getConnection(), product);
         }

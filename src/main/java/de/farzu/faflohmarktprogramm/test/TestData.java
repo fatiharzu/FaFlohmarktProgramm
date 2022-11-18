@@ -5,6 +5,9 @@ import de.farzu.faflohmarktprogramm.model.Products;
 import java.util.ArrayList;
 import java.util.List;
 
+        /**
+         * Diese Klasse wird zum Testen auch in (List<Products>) gespeichert
+         */
     public class TestData {
     //    region Konstanten
         private static final int PRODUCT_AMOUNT =20;
@@ -42,10 +45,6 @@ import java.util.List;
             productList.add(produktSix);
             Products produktSeven = new Products("Kleidung",11,"Hose","Product7");
             productList.add(produktSeven);
-
-
-
-
             return productList;
         }
     //    endregion

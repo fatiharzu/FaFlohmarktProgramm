@@ -5,9 +5,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+    /**
+     * Data Access Objekt für Produkten.
+     * Stellt Methoden zur Verfügung zum Erstellen, Auslesen,
+     * Bearbeiten, Löschen von Produkten in/aus der Datenbank.
+     */
     public class DaoProducts implements Dao<Products> {
     //    region Konstanten
-        public static final String TBL_NAME = "products";
 
             public static final String COL_ID = "pk_id";
             public static final String COL_SPECIES = "species";

@@ -1,6 +1,6 @@
 package de.farzu.faflohmarktprogramm.gui;
 
-import de.farzu.faflohmarktprogramm.gui.listview.ListViewProduktCellFactory;
+import de.farzu.faflohmarktprogramm.gui.listview.ListViewProductCellFactory;
 import de.farzu.faflohmarktprogramm.logic.ProductHolder;
 import de.farzu.faflohmarktprogramm.model.Products;
 import de.farzu.faflohmarktprogramm.settings.AppSettings;
@@ -15,6 +15,10 @@ import javafx.scene.input.MouseButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+/**
+ * Steuerlogik für die Overview-Szene
+ */
 
 public class SortController implements Initializable {
 
@@ -34,6 +38,10 @@ public class SortController implements Initializable {
 
     //    regionMethoden
 
+    /**
+     * Sortiert die Produkte nach Typ, AlterGroup und Name
+     * @param actionEvent
+     */
     @FXML
     private void sortProductList(ActionEvent actionEvent) {
 
@@ -46,15 +54,24 @@ public class SortController implements Initializable {
             }
         }
     }
-
+    /**
+     * Wird vor dem Öffnen einer Szene aufgerufen, um den Controller der
+     * Szene zu initialisieren. Vergleichbar mit den letzten Vorbereitungen
+     * eines Theaterstücks bevor der Vorhang aufgeht.
+     *
+     * @param url : {@link URL} : Ort um relative Pfade für das Root-Objekt aufzulösen, order null, wenn der Ort nicht bekannt ist
+     * @param resourceBundle : {@link ResourceBundle} : Resource-Bundle zum Lokalisieren des Objektes, oder null, wenn
+     *                          das Objekt nicht lokalisiert ist.
+     */
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-            productsListView.setCellFactory(new ListViewProduktCellFactory());
+            //Eigene Zellenfabrik zuweisen
+            productsListView.setCellFactory(new ListViewProductCellFactory());
 
         //   ObservableList<Products> productsObservableList = FXCollections.observableList(TestData.getTestProducts());
 
-
+            //Listview mit Elementen befüllen (muss eine ObservableList sein)
             productsListView.setItems(ProductHolder.getInstance().getProducts());
 
             productsListView.setOnMouseClicked(mouseEvent -> {
@@ -73,11 +90,18 @@ public class SortController implements Initializable {
             });
 
         }
-        @FXML
+
+    /**
+     * Gehen Sie mit dem Start-Button auf die Startszene
+     */
+    @FXML
         private void switchToStartScene() {
             SceneManager.getInstance().switchToStartScene();
         }
 
+    /**
+     * Gehen Sie mit dem Erstellt-Button auf die Erstellt szene
+     */
         @FXML
         private void switchToAddSceneForNewProduct() {
             SceneManager.getInstance().switchToAddScene(null);

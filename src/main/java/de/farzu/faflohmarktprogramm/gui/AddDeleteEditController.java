@@ -13,12 +13,18 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddController implements Initializable {
+/**
+ * Steuerlogik für die Hinzufügen-Löschen-Bearbeiten-Szene
+ */
+public class AddDeleteEditController implements Initializable {
     //    region Konstanten
     //    endregion
 
 
     //    region Attribute
+    private String[] productSelection = {"Kleidung   ", "Spielzeug  ", "Kindermöbel", "Kinderbuch "};
+
+    private Integer[] alterGroupSelection = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
 
     @FXML
     private Button clearButton;
@@ -35,6 +41,8 @@ public class AddController implements Initializable {
     @FXML
     public TextField txtDescription;
     @FXML
+    public Label productTypeLabel;
+    @FXML
     public Label alterGroupLabel;
 
     public Products selectedProduct;
@@ -43,14 +51,17 @@ public class AddController implements Initializable {
 
 
     //    regionKonstruktor
-    Products  product = new Products();
-    private String[] productSelection = {"Kleidung   ", "Spielzeug  ", "Kindermöbel", "Kinderbuch "};
 
-    private Integer[] alterGroupSelection = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     //    endregion
 
 
     //    regionMethoden
+    /**
+     * Setzt das selektierte Produkt und füllt die Textfelder
+     * mit den Werten seiner Eigenschaften
+     *
+     * @param selectedProduct : {@link Products} : In der Übersicht ausgewähltes Produkt
+     */
     public void setSelectedProduct(Products selectedProduct){
         this.selectedProduct = selectedProduct;
 
@@ -61,6 +72,9 @@ public class AddController implements Initializable {
             txtDescription.setText(selectedProduct.getDescription());
         }
     }
+    /**
+     * Speichert ein Produkt aus der Liste
+     */
     @FXML
     private void saveProdukt() {
         if (selectedProduct != null) {
@@ -77,6 +91,8 @@ public class AddController implements Initializable {
             if (textFieldIsNotBlankEmptyOrEqual(txtDescription, selectedProduct.getDescription()))
                 selectedProduct.setDescription(txtDescription.getText());
 
+            switchToSortScene();
+
             }else{
             try {
                 Products newProduct = new Products(
@@ -84,32 +100,43 @@ public class AddController implements Initializable {
                         Integer.parseInt(txtAlterGroup.getText()),
                         txtName.getText(),
                         txtDescription.getText()
+
                 );
                 ProductHolder.getInstance().getProducts().add(newProduct);
-
+                switchToSortScene();
             }catch (NumberFormatException e){
+                productTypeLabel.setText("Please enter Text");
                 alterGroupLabel.setText("Please enter Numbers");
             }catch (Exception e){
-                alterGroupLabel.setText("Error: " + e.getMessage());
+                productTypeLabel.setText("Error: " + e.getMessage());
             }
         }
     }
 
+    /**
+     * Gehen Sie mit dem Start-Button auf die Start szene
+     */
     @FXML
     private void switchToStartScene() {
         SceneManager.getInstance().switchToStartScene();
     }
 
+    /**
+     * Gehen Sie mit dem Liste-Button auf die Listen szene
+     */
     @FXML
     private void switchToSortScene() {SceneManager.getInstance().switchToSortScene();}
 
-
+    /**
+     * Löscht ein Produkt aus der Liste
+     */
     @FXML
     private void conveyAnimal() {
         if (selectedProduct != null) {
             ProductHolder.getInstance().getProducts().remove(selectedProduct);
-            switchToSortScene();
+
         }
+        switchToSortScene();
     }
 
     private boolean textFieldIsNotBlankEmptyOrEqual(TextField textField, String attributeValue) {
@@ -128,18 +155,31 @@ public class AddController implements Initializable {
         clearButton.setOnAction(this::setClearEmpty);
 
     }
+
+    /**
+     * Wählt den Produktwert der Schaltfläche Select Box aus
+     * @param event
+     */
     public void getProduct(ActionEvent event){
         String products = productChoiceBox.getValue();
         txtSpecies.setText(products);
 
     }
 
+    /**
+     * Wählt den Altergroup-Wert der Select Box-Schaltfläche aus
+     * @param event
+     */
     public void getAlterGroup(ActionEvent event){
         Integer alterGroup = alterGroupChoiceBox.getValue();
         txtAlterGroup.setText(String.valueOf(alterGroup));
 
     }
 
+    /**
+     * Leert Textfelder
+     * @param event
+     */
     public void setClearEmpty(ActionEvent event){
 
         txtSpecies.setText(AppTexts.EMPTY_TEXT);

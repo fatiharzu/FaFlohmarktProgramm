@@ -19,10 +19,10 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="131.0" prefWidth="598.0">
          <children>
-            <Button fx:id="createbtn" mnemonicParsing="false" onAction="#switchToAddSceneForNewProduct" text="Create Produkt" />
+            <Button fx:id="createbtn" mnemonicParsing="false" onAction="#switchToAddSceneForNewProduct" text="Produkt erstellen" />
             <Separator orientation="VERTICAL" prefHeight="41.0" prefWidth="32.0" />
             <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="32.0" />
-            <Button fx:id="productlistbtn" mnemonicParsing="false" onAction="#switchToSortScene" text="Produkt Liste" />
+            <Button fx:id="productlistbtn" mnemonicParsing="false" onAction="#switchToSortScene" text="Produktliste" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -30,14 +30,16 @@
       </HBox>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label alignment="CENTER" prefHeight="212.0" prefWidth="598.0" text="Dieses Programm wurde erstellt, um die Informationen von flohmarkt-Produkten für Kinder aufzuzeichnen und zu speichern. Auf Wunsch können neue Produktinformationen gespeichert, gespeicherte Informationen korrigiert oder gelöscht werden. Gleichzeitig können alle Produkte unter verschiedenen Rubriken sortiert werden.Habe Spaß :-)" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
-               <opaqueInsets>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </Label>
+            <Button layoutX="251.0" layoutY="39.0" mnemonicParsing="false" onAction="#appAbout" prefHeight="25.0" prefWidth="96.0" text="Information" />
+            <Pane layoutX="-1.0" layoutY="91.0" prefHeight="115.0" prefWidth="598.0">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/Users/toni/Desktop/Alfatraining%20Projects/FaFlohmarktProgramm/src/main/java/de/farzu/faflohmarktprogramm/assets/other/image%20(600%20x%20100).jpg" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Pane>
          </children>
       </Pane>
    </items>

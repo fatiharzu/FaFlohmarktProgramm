@@ -1,5 +1,8 @@
 package de.farzu.faflohmarktprogramm.settings;
 
+        /**
+         * Stellt Applikationseinstellungen als Konstanten zur Verfügung
+         */
     public class AppSettings {
         //    region Konstanten
         //    endregion

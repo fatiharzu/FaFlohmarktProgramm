@@ -7,6 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import java.util.Comparator;
+        /**
+         * Klasse, welche alle Produkten als ObservableList bereitstellt
+         */
 
     public class ProductHolder {
     //    region Konstanten
