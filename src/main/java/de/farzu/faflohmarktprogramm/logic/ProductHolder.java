@@ -36,7 +36,7 @@ import java.util.Comparator;
                 @Override
                 public void onChanged(Change<? extends Products> change) {
 
-                    System.out.println(change);
+//                    System.out.println(change);
 
                     while(change.next()){
 
@@ -47,6 +47,7 @@ import java.util.Comparator;
                         } else if (change.wasRemoved()) {
                             Products productToDelete = change.getRemoved().get(0);
                             DbManager.getInstance().deleteDataRecord(productToDelete);
+
                         } else if (change.wasUpdated()) {
                             int updateIndex = change.getFrom();
                             Products productToUpdate = change.getList().get(updateIndex);
