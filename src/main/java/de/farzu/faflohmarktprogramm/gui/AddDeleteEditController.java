@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,6 +26,8 @@ public class AddDeleteEditController implements Initializable {
 
     //    region Attribute
     private String[] productSelection = {"Kleidung   ", "Spielzeug  ", "Kindermöbel", "Kinderbuch "};
+
+
 
     private Integer[] alterGroupSelection = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
 
@@ -46,6 +51,8 @@ public class AddDeleteEditController implements Initializable {
     public Label alterGroupLabel;
 
     public Products selectedProduct;
+
+
 
     //    endregion
 
@@ -189,6 +196,7 @@ public class AddDeleteEditController implements Initializable {
         productChoiceBox.setValue("");
         txtAlterGroup.setText(String.valueOf(AppTexts.EMPTY_TEXT));
     }
+
 
     //    endregion
 

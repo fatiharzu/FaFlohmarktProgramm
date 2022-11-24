@@ -1,8 +1,11 @@
 package de.farzu.faflohmarktprogramm.gui;
 
 import de.farzu.faflohmarktprogramm.settings.AppTexts;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class StartController  {
 
@@ -34,6 +37,5 @@ public class StartController  {
         alert.setHeaderText(null);
         alert.showAndWait();
     }
-
 
 }

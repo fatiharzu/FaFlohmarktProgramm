@@ -4,6 +4,7 @@
         import de.farzu.faflohmarktprogramm.model.Products;
         import de.farzu.faflohmarktprogramm.settings.AppTexts;
         import de.farzu.faflohmarktprogramm.settings.AppUrl;
+        import javafx.event.ActionEvent;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.image.Image;
@@ -86,6 +87,8 @@
               mainStage.setScene(scene);
               mainStage.show();
          }
+
+
         //    endregion
 
  }
