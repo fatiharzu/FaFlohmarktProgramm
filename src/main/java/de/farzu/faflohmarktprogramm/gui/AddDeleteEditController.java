@@ -10,9 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,9 +17,6 @@ import java.util.ResourceBundle;
  * Steuerlogik für die Hinzufügen-Löschen-Bearbeiten-Szene
  */
 public class AddDeleteEditController implements Initializable {
-    //    region Konstanten
-    //    endregion
-
 
     //    region Attribute
     private String[] productSelection = {"Kleidung   ", "Spielzeug  ", "Kindermöbel", "Kinderbuch "};
@@ -51,14 +45,6 @@ public class AddDeleteEditController implements Initializable {
     public Label alterGroupLabel;
 
     public Products selectedProduct;
-
-
-
-    //    endregion
-
-
-    //    regionKonstruktor
-
     //    endregion
 
 
@@ -196,7 +182,6 @@ public class AddDeleteEditController implements Initializable {
         productChoiceBox.setValue("");
         txtAlterGroup.setText(String.valueOf(AppTexts.EMPTY_TEXT));
     }
-
 
     //    endregion
 

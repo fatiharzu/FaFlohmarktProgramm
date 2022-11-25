@@ -15,9 +15,6 @@
          * Singleton, welcher zuständig für das Wechseln der Szenen ist.
          */
         public class SceneManager {
-        //    region Konstanten
-
-        //    endregion
 
         //    region Attribute
         private Stage mainStage;

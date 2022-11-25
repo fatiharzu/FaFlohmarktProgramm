@@ -17,24 +17,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Steuerlogik für die Overview-Szene
+ * Steuerlogik für die Sort List-Szene
  */
 
 public class SortController implements Initializable {
-
-    //    region Konstanten
-    //    endregion
-
 
     //    region Attribute
     @FXML
     private ListView<Products> productsListView;
     //    endregion
-
-
-    //    regionKonstruktor
-    //    endregion
-
 
     //    regionMethoden
 
