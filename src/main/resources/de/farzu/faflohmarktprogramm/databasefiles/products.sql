@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2022 at 09:03 AM
+-- Generation Time: Nov 25, 2022 at 11:54 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -36,18 +36,22 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncate table before insert `products`
---
-
-TRUNCATE TABLE `products`;
---
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`pk_id`, `species`, `alterGroup`, `name`, `description`) VALUES
-(34, 'Kinderbuch ', 8, 'KinderSpreise', 'secondhand'),
+(34, 'Kinderbuch ', 8, 'Heidi', 'Gute Zustand'),
 (36, 'Kinderbuch ', 8, 'Spiderman', '35 pages'),
-(42, 'Spielzeug  ', 4, 'Hause', 'Es gibt keine Tür');
+(42, 'Spielzeug  ', 4, 'Puppenhause', 'Es gibt keine Tür'),
+(43, 'Kleidung   ', 3, 'Hose', 'Ein neuer Knopf sollte angenäht werden'),
+(44, 'Spielzeug  ', 3, 'Puppe', 'Gute Zustand'),
+(45, 'Kindermöbel', 4, 'Kinderbett', 'hat leichte kratzer'),
+(46, 'Kindermöbel', 10, 'Schreibtisch', 'Gute Zustand'),
+(47, 'Kleidung   ', 5, 'Hose', 'Gute Zustand'),
+(48, 'Kleidung   ', 4, 'Rock', 'Gute Zustand'),
+(49, 'Baby Produkts', 1, 'Hohe Stühle', 'Gute Zustand'),
+(50, 'Baby Produkts', 1, 'Schnuller', 'unbenutztes Produkt'),
+(51, 'Baby Produkts', 1, 'Babyflaschen', 'Gute Zustand');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +71,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `pk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
